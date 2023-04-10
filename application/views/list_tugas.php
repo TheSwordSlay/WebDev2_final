@@ -153,6 +153,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editTugas<?=$tg->id?>">Edit</button>
         <?php echo anchor('Dashboard/hapustugas/'.$tg->id, '<button type="button" class="btn btn-danger">Hapus Tugas</button>');?>
       </div>
     </div>
@@ -174,10 +175,11 @@
       <div class="modal-body">
         
 
-      <form>
+      <form action="<?php echo base_url()?>Dashboard/editmatkul" method="post">
         <div class="form-group">
           <label for="exampleInputEmail1">Nama Mata Kuliah</label>
-          <input type="text" value="<?=$mk->mata_kuliah?>" class="form-control" id="whatever" aria-describedby="emailHelp" placeholder="Masukkan Nama Mata Kuliah Baru">
+          <input type="hidden" name="matakuliahold" value="<?=$mk->mata_kuliah?>" class="form-control" id="whatever2" aria-describedby="emailHelp">
+          <input type="text" name="matakuliahnew" value="<?=$mk->mata_kuliah?>" class="form-control" id="whatever" aria-describedby="emailHelp" placeholder="Masukkan Nama Mata Kuliah Baru">
         </div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -190,3 +192,44 @@
   </div>
 </div>
 <?php }?>
+
+<?php foreach($tugas as $tg) {?>
+  <div class="modal fade" id="editTugas<?php echo $tg->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Tugas</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+
+          <form action="<?php echo base_url()?>Dashboard/edit_tugas" method="POST">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Nama Tugas</label>
+            <input value="<?=$tg->id?>" name="id" type="hidden" class="form-control" id="exampleFormControlInput1">
+            <input value="<?=$tg->nama_tugas?>" name="namatugas" type="text" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Mata Kuliah</label>
+            <select name="matakuliah" class="form-control" id="exampleFormControlSelect1">
+              <?php foreach($matakuliah as $mk) {?>
+                <option <?php if($tg->mata_kuliah == $mk->mata_kuliah) {echo "selected";}?>><?php echo $mk->mata_kuliah?></option>
+              <?php }?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Deskripsi Tugas</label>
+            <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3"><?=$tg->deskripsi?></textarea>
+          </div>
+          <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>     
+    </div>
+  </div>
+  </div>
+  <?php }?>

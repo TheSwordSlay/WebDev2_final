@@ -13,4 +13,9 @@ class M_matakuliah extends CI_Model {
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+    public function update_matkul($where, $data, $table){
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
 }

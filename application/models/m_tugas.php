@@ -23,4 +23,14 @@ class M_tugas extends CI_Model {
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+
+    public function update_matkul($where, $data, $table){
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
+
+    public function update_tugas($where, $data, $table){
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
 }

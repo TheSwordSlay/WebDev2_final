@@ -101,4 +101,28 @@ class Dashboard extends CI_Controller {
 		redirect('#');
 
 	}
+
+	public function editmatkul() {
+		$editmatkul = $this->input->post();
+		$data = array(
+			'mata_kuliah' => $editmatkul['matakuliahnew'],
+		);
+
+		$where = array ('mata_kuliah' => $editmatkul['matakuliahold']);
+		$this->m_tugas->update_matkul($where, $data, 'tugas');
+		$this->m_matakuliah->update_matkul($where, $data, 'mata_kuliah');
+		redirect('#');
+	}
+
+	public function edit_tugas() {
+		$edittugas = $this->input->post();
+		$data = array(
+			'mata_kuliah' => $edittugas['matakuliah'],
+			'nama_tugas' => $edittugas['namatugas'],
+			'deskripsi' => $edittugas['deskripsi'],
+		);
+		$where = array('id' => $edittugas['id']);
+		$this->m_tugas->update_tugas($where, $data, 'tugas');
+		redirect('#');
+	}
 }
