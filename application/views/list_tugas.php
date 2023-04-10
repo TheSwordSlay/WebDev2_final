@@ -153,7 +153,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editTugas<?=$tg->id?>">Edit</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#editTugas<?=$tg->id?>">Edit</button>
         <?php echo anchor('Dashboard/hapustugas/'.$tg->id, '<button type="button" class="btn btn-danger">Hapus Tugas</button>');?>
       </div>
     </div>
@@ -224,7 +224,7 @@
             <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3"><?=$tg->deskripsi?></textarea>
           </div>
           <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                   <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
