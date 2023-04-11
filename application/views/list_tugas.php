@@ -65,7 +65,7 @@
                 <?php }?>
             </div>
             
-            <div class="card">
+            <div class="card" id="persentase-selesai-tugas">
                     <div class="card-header">
                         <h3 class="card-title">
                         <i class="fas fa-chart-pie mr-1"></i>
@@ -180,13 +180,21 @@
           <label for="exampleInputEmail1">Nama Mata Kuliah</label>
           <input type="hidden" name="matakuliahold" value="<?=$mk->mata_kuliah?>" class="form-control" id="whatever2" aria-describedby="emailHelp">
           <input type="text" name="matakuliahnew" value="<?=$mk->mata_kuliah?>" class="form-control" id="whatever" aria-describedby="emailHelp" placeholder="Masukkan Nama Mata Kuliah Baru">
+          <br>
+          <label for="exampleFormControlSelect1">Warna Kotak</label>
+          <select name="warna" class="form-control" id="exampleFormControlSelect1">
+            <option value="1" <?php if($mk->warna == 1){echo "selected";}?>>Biru</option>
+            <option value="2" <?php if($mk->warna == 2){echo "selected";}?>>Hijau</option>
+            <option value="3" <?php if($mk->warna == 3){echo "selected";}?>>Kuning</option>
+            <option value="4" <?php if($mk->warna == 4){echo "selected";}?>>Merah</option>
+          </select>
         </div>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-        <?php echo anchor('Dashboard/hapusmatkul/'.$mk->mata_kuliah, '<button type="button" class="btn btn-danger">Hapus Mata Kuliah</button>');?>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+          <?php echo anchor('Dashboard/hapusmatkul/'.$mk->mata_kuliah, '<button type="button" class="btn btn-danger">Hapus Mata Kuliah</button>');?>
+        </div>
       </form>
-      </div>
-      <div class="modal-footer">
       </div>
     </div>
   </div>

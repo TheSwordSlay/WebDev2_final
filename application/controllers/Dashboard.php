@@ -104,13 +104,18 @@ class Dashboard extends CI_Controller {
 
 	public function editmatkul() {
 		$editmatkul = $this->input->post();
-		$data = array(
+		$datamatkul = array(
 			'mata_kuliah' => $editmatkul['matakuliahnew'],
+			'warna' => $editmatkul['warna']
 		);
 
+		$data = array(
+			'mata_kuliah' => $editmatkul['matakuliahnew']
+		);
+		
 		$where = array ('mata_kuliah' => $editmatkul['matakuliahold']);
 		$this->m_tugas->update_matkul($where, $data, 'tugas');
-		$this->m_matakuliah->update_matkul($where, $data, 'mata_kuliah');
+		$this->m_matakuliah->update_matkul($where, $datamatkul, 'mata_kuliah');
 		redirect('#');
 	}
 

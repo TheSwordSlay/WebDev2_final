@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Follow us on <a href="https://www.instagram.com/fiqri_syah_dani/">instagram</a>.</strong>
+    <strong>Follow us on <a href="https://www.instagram.com/fiqri_syah_dani/" target="_blank">instagram</a>.</strong>
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0
     </div>
@@ -43,8 +43,6 @@
 <script src="<?php echo base_url() ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() ?>assets/dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url() ?>assets/dist/js/pages/dashboard.js"></script>
 
